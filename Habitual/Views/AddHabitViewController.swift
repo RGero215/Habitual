@@ -28,11 +28,15 @@ class AddHabitViewController: UIViewController {
     }
     
     @IBAction func pickPhotoButtonPressed(_ sender: Any) {
+        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first else {return}
+        let confirmHabitVC = ConfirmHabitViewController.instantiate()
+        confirmHabitVC.habitImage = habitImages[selectedIndexPath.row]
+        navigationController?.pushViewController(confirmHabitVC, animated: true)
     }
     
     func setupNavBar() {
         title = "Select Image"
-        
+
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAddHabit(_:)))
         cancelButton.tintColor = UIColor.black
         navigationItem.leftBarButtonItem = cancelButton

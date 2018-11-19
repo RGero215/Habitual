@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Create an instance of the main view controller
         let navigationController = UINavigationController()
+        var navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = UIColor.black
         let mainViewController = HabitsTableViewController.instantiate()
         navigationController.setViewControllers([mainViewController], animated: false)
         
